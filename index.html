@@ -586,5 +586,16 @@ window.addEventListener('scroll', function() {
   });
 });
 </script>
+  <script>
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function() {
+    const section = this.getAttribute('href');
+
+    gtag('event', 'click_section', {
+      section_name: section
+    });
+  });
+});
+</script>
 </body>
 </html>
