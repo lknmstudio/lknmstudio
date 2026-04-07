@@ -570,5 +570,21 @@
     @lknm.studio
   </a>
 </div>
+  <script>
+let scrollTracked = [];
+
+window.addEventListener('scroll', function() {
+  let scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+
+  [25, 50, 75, 90].forEach(function(percent) {
+    if (scrollPercent >= percent && !scrollTracked.includes(percent)) {
+      scrollTracked.push(percent);
+      gtag('event', 'scroll_depth', {
+        percent_scrolled: percent
+      });
+    }
+  });
+});
+</script>
 </body>
 </html>
